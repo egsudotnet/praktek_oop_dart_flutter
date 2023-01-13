@@ -35,7 +35,8 @@ class Home extends StatelessWidget {
             final DaftarMenu menu = DaftarMenus[index];
             return Text(menu.name);
 
-        }
+        },
+        itemCount: DaftarMenus.length,
       )
           
     );
