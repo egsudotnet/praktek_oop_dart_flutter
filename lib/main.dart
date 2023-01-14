@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:oop_praktik_reastaurant/daftar_menu.dart';
 
-void main(){
+void main() {
   runApp(const MyApp());
 }
 
@@ -12,33 +11,36 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData( 
-        primarySwatch: Colors.purple,
-      ), 
-      home: Home()
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.purple,
+        ),
+        home: Home());
   }
 }
 
 class Home extends StatelessWidget {
-  const Home({super.key}); 
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Hi, Silahkan pilih pesanan anda!"),
-      ),
-      body: ListView.builder(
-        itemBuilder: (context, index) {
+        appBar: AppBar(
+          title: Text("Hi, Silahkan pilih pesanan anda!"),
+        ),
+        body: ListView.builder(
+          itemBuilder: (context, index) {
             final DaftarMenu menu = DaftarMenus[index];
-            return Text(menu.name);
-
-        },
-        itemCount: DaftarMenus.length,
-      )
-          
-    );
+            return Card(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                Expanded(flex: 1, child: Image.network(menu.imageUrl)),
+                Text(menu.name)
+                ]
+              ));
+          },
+          itemCount: DaftarMenus.length,
+        ));
   }
 }
