@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
             return InkWell(
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return DetailPage();
+                  return DetailPage(menu : menu);
                 }));
               },
               child: Card(
