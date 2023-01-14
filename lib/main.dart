@@ -26,7 +26,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Hi, Silahkan pilih pesanan anda!"),
+          title: const Text("Hi, Silahkan pilih pesanan anda!"),
         ),
         body: ListView.builder(
           itemBuilder: (context, index) {
@@ -37,10 +37,22 @@ class Home extends StatelessWidget {
                     children: [
                   Expanded(flex: 1, child: Image.network(menu.imageUrl)),
                   Expanded(
-                      child: Column(children: [
-                    Text(menu.name),
-                    Text(menu.harga.toString())
-                  ]))
+                      child: Container(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                          Text(
+                            menu.name,
+                            style: const TextStyle(fontSize: 30.0),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(menu.harga.toString(),
+                              style: const TextStyle(fontSize: 30.0)),
+                        ]),
+                      ))
                 ]));
           },
           itemCount: DaftarMenus.length,
