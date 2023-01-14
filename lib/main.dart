@@ -35,7 +35,7 @@ class Home extends StatelessWidget {
                 child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                  Expanded(flex: 1, child: Image.network(menu.imageUrl)),
+                  Expanded(flex: 1, child: Image.network(menu.imageUrls[0])),
                   Expanded(
                       child: Container(
                         padding: const EdgeInsets.all(10.0),
