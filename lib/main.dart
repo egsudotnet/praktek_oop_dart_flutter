@@ -32,13 +32,16 @@ class Home extends StatelessWidget {
           itemBuilder: (context, index) {
             final DaftarMenu menu = DaftarMenus[index];
             return Card(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                Expanded(flex: 1, child: Image.network(menu.imageUrl)),
-                Text(menu.name)
-                ]
-              ));
+                child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                  Expanded(flex: 1, child: Image.network(menu.imageUrl)),
+                  Expanded(
+                      child: Column(children: [
+                    Text(menu.name),
+                    Text(menu.harga.toString())
+                  ]))
+                ]));
           },
           itemCount: DaftarMenus.length,
         ));
